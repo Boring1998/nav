@@ -77,6 +77,10 @@ import { ImageComponent } from '../components/image/index.component'
 import { ImageDrawerComponent } from '../components/image/drawer/index.component'
 import { CountdownComponent } from '../components/countdown/index.component'
 import { CountdownDrawerComponent } from '../components/countdown/drawer/index.component'
+import { HTMLComponent } from '../components/html/index.component'
+import { HTMLDrawerComponent } from '../components/html/drawer/index.component'
+import { HolidayComponent } from '../components/holiday/index.component'
+import { HolidayDrawerComponent } from '../components/holiday/drawer/index.component'
 
 import LightComponent from '../view/light/index.component'
 import SuperComponent from '../view/super/index.component'
@@ -171,6 +175,10 @@ const icons: IconDefinition[] = [
     ImageDrawerComponent,
     CountdownComponent,
     CountdownDrawerComponent,
+    HTMLComponent,
+    HTMLDrawerComponent,
+    HolidayComponent,
+    HolidayDrawerComponent,
     OffWorkDrawerComponent,
     CalendarDrawerComponent,
     ComponentGroupComponent,

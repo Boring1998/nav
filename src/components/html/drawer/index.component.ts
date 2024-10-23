@@ -7,11 +7,11 @@ import { $t } from 'src/locale'
 import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
-  selector: 'image-drawer',
+  selector: 'html-drawer',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
 })
-export class ImageDrawerComponent {
+export class HTMLDrawerComponent {
   @Output() ok = new EventEmitter<void>()
 
   $t = $t
@@ -21,9 +21,7 @@ export class ImageDrawerComponent {
 
   constructor(private fb: FormBuilder) {
     this.validateForm = this.fb.group({
-      url: [''],
-      text: [''],
-      go: [''],
+      html: [''],
     })
   }
 
@@ -33,10 +31,6 @@ export class ImageDrawerComponent {
       this.validateForm.get(k)!?.setValue(data[k])
     }
     this.visible = true
-  }
-
-  onUploadImage(data: any) {
-    this.validateForm.get('url')!.setValue(data.cdn)
   }
 
   handleClose() {

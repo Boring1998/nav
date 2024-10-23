@@ -4,16 +4,15 @@
 
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core'
 import { IComponentProps } from 'src/types'
-import { JumpService } from 'src/services/jump'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-image',
+  selector: 'app-html',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
 })
-export class ImageComponent {
+export class HTMLComponent {
   @Input() data!: IComponentProps
 
-  constructor(public jumpService: JumpService) {}
+  constructor() {}
 }

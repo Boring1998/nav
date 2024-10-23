@@ -3,9 +3,8 @@
 // See https://github.com/xjh22222228/nav
 
 import { Component, Input } from '@angular/core'
-import { components, settings } from 'src/store'
-import { ComponentType, IComponentProps } from 'src/types'
-import event from 'src/utils/mitt'
+import { settings } from 'src/store'
+import { IComponentProps } from 'src/types'
 
 @Component({
   selector: 'app-runtime',
@@ -15,24 +14,19 @@ import event from 'src/utils/mitt'
 export class RuntimeComponent {
   @Input() data!: IComponentProps
 
-  component: Record<string, any> = {}
   runDays = 0
+  unit = ''
 
   constructor() {
     let now = Date.now() - settings.runtime
     now = now < 0 ? 0 : now
-    this.runDays = Math.floor(now / (1000 * 60 * 60 * 24))
-  }
-
-  ngOnInit() {
-    this.init()
-    event.on('COMPONENT_OK', this.init.bind(this))
-  }
-
-  init() {
-    const data = components.find(
-      (item) => item.type === ComponentType.Runtime && item.id === this.data.id
-    )
-    this.component = data || {}
+    const diffYear = Math.floor(now / (1000 * 60 * 60 * 24 * 365))
+    if (diffYear > 0) {
+      this.runDays = diffYear
+      this.unit = '年'
+    } else {
+      this.runDays = Math.floor(now / (1000 * 60 * 60 * 24))
+      this.unit = '天'
+    }
   }
 }
